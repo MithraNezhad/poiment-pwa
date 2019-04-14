@@ -11,23 +11,27 @@
     <textarea matInput placeholder="Description ..."></textarea>
   </mat-form-field>
 
+
+
+  <mat-form-field> <input matInput placeholder="Maximum number of guests" value="" />
+
+  </mat-form-field>
+
+  <mat-form-field> <input matInput placeholder="Maximum time to register" value="" />
+
+  </mat-form-field>
+
+
+
+
   <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="model.date"
-      name="date"
-      [matDatepicker]="picker"
-      placeholder="Date"
-    />
+    <input matInput [(ngModel)]="model.date" name="date" [matDatepicker]="picker" placeholder="Date" />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
-  <app-range-input
-    [model]="model.ranges"
-    [pointerLabelFn]="pointerLabelFn"
-    [possibleRanges]="possibleRanges"
-  ></app-range-input>
+  <app-range-input [model]="model.ranges" [pointerLabelFn]="pointerLabelFn" [possibleRanges]="possibleRanges">
+  </app-range-input>
 
   <label>
     Time ranges
@@ -47,7 +51,10 @@
       </button>
     </li>
   </ul>
-
+  <br>
+  <mat-form-field>
+    <input matInput placeholder="Your email" value="" />
+  </mat-form-field>
   <br />
   <div class="buttons">
     <a href="" class="primary">

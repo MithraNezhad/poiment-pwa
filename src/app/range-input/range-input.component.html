@@ -1,41 +1,34 @@
-<div class="axis" (onmousedown)="pointerMove('start', $event)" *ngIf="xAxis">
-  <div
-    class="range"
-    *ngFor="let range of model; trackBy: trackByFn"
-    [style.marginLeft]="
+<div class="range-input">
+
+
+
+  <div class="axis" (onmousedown)="pointerMove('start', $event)" *ngIf="xAxis">
+    <div class="range" *ngFor="let range of model; trackBy: trackByFn" [style.marginLeft]="
       (100 / xAxis.length) * xAxis.indexOf(range[0]) +
       100 / xAxis.length / 2 +
       '%'
-    "
-    [style.width]="
+    " [style.width]="
       (100 / xAxis.length) *
         (xAxis.indexOf(range[1]) - xAxis.indexOf(range[0])) +
       '%'
-    "
-  >
-    <div
-      class="start pointer"
-      [attr.data-pointer]="'start'"
-      [attr.data-position]="range[0]"
-      [class.mousedown]="mousedownOn == range[0]"
-    >
-      {{ pointerLabelFn(range[0]) }}
+    ">
+      <div class="start pointer" [attr.data-pointer]="'start'" [attr.data-position]="range[0]"
+        [class.mousedown]="mousedownOn == range[0]">
+        {{ pointerLabelFn(range[0]) }}
+      </div>
+      <div class="end pointer" [attr.data-pointer]="'end'" [attr.data-position]="range[1]"
+        [class.mousedown]="mousedownOn == range[1]">
+        {{ pointerLabelFn(range[1]) }}
+      </div>
     </div>
-    <div
-      class="end pointer"
-      [attr.data-pointer]="'end'"
-      [attr.data-position]="range[1]"
-      [class.mousedown]="mousedownOn == range[1]"
-    >
-      {{ pointerLabelFn(range[1]) }}
+
+    <div class="step" [style.width]="100 / xAxis.length + '%'" *ngFor="let x of xAxis">
+      {{ x.toString().indexOf(".") === -1 ? x : "" }}
     </div>
   </div>
 
-  <div
-    class="step"
-    [style.width]="100 / xAxis.length + '%'"
-    *ngFor="let x of xAxis"
-  >
-    {{ x.toString().indexOf(".") === -1 ? x : "" }}
+  <div class="plus">
+    +
   </div>
+
 </div>
