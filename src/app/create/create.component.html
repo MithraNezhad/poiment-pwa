@@ -1,0 +1,57 @@
+<p>
+  Enter details of your new event.
+</p>
+
+<form action="">
+  <mat-form-field>
+    <input matInput placeholder="Event name" value="" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <textarea matInput placeholder="Description ..."></textarea>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="model.date"
+      name="date"
+      [matDatepicker]="picker"
+      placeholder="Date"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <app-range-input
+    [model]="model.ranges"
+    [pointerLabelFn]="pointerLabelFn"
+    [possibleRanges]="possibleRanges"
+  ></app-range-input>
+
+  <label>
+    Time ranges
+  </label>
+
+  <ul>
+    <li *ngFor="let range of model.ranges; let i = index">
+      From {{ pointerLabelFn(range[0]) }} To {{ pointerLabelFn(range[1]) }}
+
+      <div class="delete-range" (click)="deleteRange(i)">
+        X
+      </div>
+    </li>
+    <li>
+      <button class="new" (click)="newRange()">
+        New range
+      </button>
+    </li>
+  </ul>
+
+  <br />
+  <div class="buttons">
+    <a href="" class="primary">
+      Create and get link
+    </a>
+  </div>
+</form>
