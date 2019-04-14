@@ -1,4 +1,4 @@
-<div class="axis" (onmousedown)="pointerMove('start', $event)" *ngIf="xAxis">
+<div class="axis" *ngIf="xAxis">
   <div
     class="range"
     *ngFor="let range of model; trackBy: trackByFn"
