@@ -19,16 +19,16 @@ export class RangeInputComponent implements OnInit {
   @Output() modelChange = new EventEmitter();
 
   // @Input() model = [[8.5, 12], [14, 16]];
-  private _model: string;
+  private _model: any;
 
 
-  public get model(): string {
+  public get model(): any {
     return this._model;
   }
 
   @Input()
 
-  public set model(v: string) {
+  public set model(v: any) {
     if (this._model !== v) {
       console.log(v);
       this._model = v;
@@ -43,7 +43,7 @@ export class RangeInputComponent implements OnInit {
   mousedownPos: { x: any; y: any };
   xAxisStepWidth: number;
   constructor(private changeRef: ChangeDetectorRef) {
-     // changeRef.detach();
+    // changeRef.detach();
   }
 
   @Input() pointerLabelFn = (input: number) => input;

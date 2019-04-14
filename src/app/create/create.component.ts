@@ -18,7 +18,7 @@ export class CreateComponent implements OnInit {
     ranges: [[9, 15]]
   };
 
-  possibleRanges = [[0, 24]];
+  possibleRanges = [[7, 24]];
   pointerLabelFn = (input: number) =>
     input
       .toString()
